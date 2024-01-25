@@ -2,8 +2,8 @@ package com.study.springboot.mystudywebapp.login;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -18,13 +18,13 @@ public class LoginController {
 		this.authenticationService = authenticationService;
 	}
 
-	@RequestMapping(value="login", method = RequestMethod.GET)
+	@GetMapping("login")
 	public String loginPage() {
 		
 		return "login";
 	}
 	
-	@RequestMapping(value="login", method = RequestMethod.POST)
+	@PostMapping("login")
 	public String goWelcomePage(@RequestParam String name, 
 			@RequestParam String password, ModelMap model) {
 		

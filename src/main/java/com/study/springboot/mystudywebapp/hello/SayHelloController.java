@@ -1,6 +1,10 @@
 package com.study.springboot.mystudywebapp.hello;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -11,7 +15,7 @@ public class SayHelloController {
 	@ResponseBody
 	public String sayHello() {
 		return "Hello! what are tou learning today?";
-	}
+	}	
 	
 	@RequestMapping("say-hello-html")
 	@ResponseBody
@@ -29,9 +33,9 @@ public class SayHelloController {
 		return sb.toString();
 	}
 	
-	@RequestMapping("say-hello-jsp")
-	public String sayHelloJsp() {
-		return "sayHello";
-	}
+	@GetMapping("/api/hello")
+    public List<String> Hello(){
+        return Arrays.asList("서버서버", "뷰뷰");
+    }
 	
 }
